@@ -1,1 +1,507 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
+OrionLib:MakeNotification({
+	Name = "DARK",
+	Content = "Dark scripts",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+
+local MianTab = Window:MakeTab({
+	Name = "Tab 1",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = MianTab:AddSection({
+	Name = "Mian Section"
+})
+
+MianTab:AddToggle({
+	Name = "auto fuse (Potion Poodle)",
+	Default = false,
+	Callback = function(Value)
+		autoBreakteleportToFuseMachine = Value
+    while autoBreakteleportToFuseMachine and task.wait() do
+    _G.autoFuse = true
+
+local PET_TO_FUSE = "Potion Poodle" -- name of the pet you want to fuse
+local FUSE_AMOUNT = 3 -- amount to put into daycare (3 is the minimum)
+local IS_SHINY = false
+local PET_TYPE = 0 -- change to 2 for Rainbow, 1 for Golden, or 0 for Normal
+-- MAKE PET TYPES TO FUSE
+
+
+
+local Workspace = game:GetService("Workspace")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Library = ReplicatedStorage:WaitForChild("Library")
+local LocalPlayer = game:GetService("Players").LocalPlayer
+
+local pets = require(Library).Save.Get().Inventory.Pet
+
+local petId
+for id, petData in pairs(pets) do
+    if petData["id"] == PET_TO_FUSE then
+        print("Found pet:")
+        if tonumber(petData["pt"]) == PET_TYPE then
+            if IS_SHINY then
+                if petData["sh"] then
+                    petId = id
+                    break
+                end
+            else
+                if not petData["sh"] then
+                    petId = id
+                    break
+                end
+            end
+        else
+            petId = id
+        end
+    end
+end
+
+if not petId then
+    print("Pet not found")
+    return
+else
+    print("Found pet: " .. petId)
+end
+
+local function teleportToFuseMachine()
+    local zonePath
+    local teleported = false
+    while not teleported do
+        for _, v in pairs(Workspace.Map:GetChildren()) do
+            zonePath = game:GetService("Workspace").Map["28 | Shanty Town"]
+            LocalPlayer.Character.HumanoidRootPart.CFrame = zonePath.PERSISTENT.Teleport.CFrame
+            teleported = true
+            break
+        end
+        task.wait()
+    end
+
+    if not zonePath:FindFirstChild("INTERACT") then
+        local loaded = false
+        local detectLoad = zonePath.ChildAdded:Connect(function(child)
+            if child.Name == "INTERACT" then
+                loaded = true
+            end
+        end)
+
+        repeat
+            task.wait()
+        until loaded
+
+        detectLoad:Disconnect()
+    end
+
+    LocalPlayer.Character.HumanoidRootPart.CFrame = zonePath.INTERACT.Machines.FuseMachine.PadGlow.CFrame
+end
+
+teleportToFuseMachine()
+
+while _G.autoFuse do
+    local args = {
+        [1] = {
+            [petId] = FUSE_AMOUNT
+        }
+    }
+
+    game:GetService("ReplicatedStorage").Network.FuseMachine_Activate:InvokeServer(unpack(args))
+    task.wait()
+end
+            end
+	end    
+})
+
+
+local darkTab = Window:MakeTab({
+	Name = "Tab 1",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local Section = darkTab:AddSection({
+	Name = "Section"
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Spawn"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Colorful Forest"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Castle"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Green Forest"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Autumn"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Cherry Blossom"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Farm"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Backyard"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Misty Falls"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Mine"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Crystal Caverns"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Dead Forest"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Mushroom Field"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Enchanted Forest"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Crimson Forest"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Jungle"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Jungle Temple"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Oasis"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Beach"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Coral Reef"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Shipwreck"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Atlantis"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Palm Beach"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Tiki"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Pirate Cove"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Pirate Tavern"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
+
+darkTab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+            while true do
+		local args = {
+    [1] = "Shanty Town"
+}
+
+game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(unpack(args))
+            end
+	end    
+})
