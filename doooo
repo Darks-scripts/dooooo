@@ -10,7 +10,7 @@ OrionLib:MakeNotification({
 
 
 local MianTab = Window:MakeTab({
-	Name = "Tab 1",
+	Name = "Mian Tab 1",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
@@ -119,16 +119,7 @@ end
 })
 
 
-local darkTab = Window:MakeTab({
-	Name = "Tab 1",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-local Section = darkTab:AddSection({
-	Name = "Section"
-})
-
-darkTab:AddToggle({
+MianTab:AddToggle({
 	Name = "This is a toggle!",
 	Default = false,
 	Callback = function(Value)
@@ -156,7 +147,7 @@ game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(
 	end    
 })
 
-darkTab:AddToggle({
+MianTab:AddToggle({
 	Name = "This is a toggle!",
 	Default = false,
 	Callback = function(Value)
@@ -170,7 +161,7 @@ game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(
 	end    
 })
 
-darkTab:AddToggle({
+MianTab:AddToggle({
 	Name = "This is a toggle!",
 	Default = false,
 	Callback = function(Value)
@@ -184,7 +175,7 @@ game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(
 	end    
 })
 
-darkTab:AddToggle({
+MianTab:AddToggle({
 	Name = "This is a toggle!",
 	Default = false,
 	Callback = function(Value)
@@ -198,7 +189,7 @@ game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(
 	end    
 })
 
-darkTab:AddToggle({
+MianTab:AddToggle({
 	Name = "This is a toggle!",
 	Default = false,
 	Callback = function(Value)
@@ -212,7 +203,7 @@ game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(
 	end    
 })
 
-darkTab:AddToggle({
+MianTab:AddToggle({
 	Name = "This is a toggle!",
 	Default = false,
 	Callback = function(Value)
@@ -505,3 +496,5 @@ game:GetService("ReplicatedStorage").Network.Zones_RequestPurchase:InvokeServer(
             end
 	end    
 })
+
+OrionLib:Init()
