@@ -1,17 +1,33 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
-
 local MainTab = Window:MakeTab({
 	Name = "Tab 1",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
 
-MainTab:AddButton({
-	Name = "test",
+Tab:AddButton({
+	Name = "Button!",
 	Callback = function()
-      		loadstring(game:HttpGet("https://raw.githubusercontent.com/Darks-scripts/testnew/main/testnew"))()
+      		while true do
+game:GetService("ReplicatedStorage").Network.Pets_ToggleFavoriteMode:FireServer()
+wait(60)
+end
+  	end    
+})
+
+MainTab:AddButton({
+	Name = "Pet Equip buy",
+	Callback = function()
+      		print("hello")
+  	end    
+})
+
+MainTab:AddButton({
+	Name = "Next world auto buy",
+	Callback = function()
+      		print("hello")
   	end    
 })
 
@@ -266,3 +282,5 @@ MainTab:AddToggle({
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(669.154541, 16.2359428, 1083.06812, -0.458277345, -9.89286377e-08, 0.888809264, -2.93006899e-08, 1, 9.6197013e-08, -0.888809264, 1.80421882e-08, -0.458277345)
 	end    
 })
+
+OrionLib:Init()
