@@ -8,19 +8,6 @@ local MainTab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-local DarkTab = Window:MakeTab({
-	Name = "Tab 1",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-
---[[
-Name = <string> - The name of the tab.
-Icon = <string> - The icon of the tab.
-PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
-]]
-
-
 MainTab:AddToggle({
 	Name = "Next world auto buy",
 	Default = true,
@@ -643,9 +630,15 @@ MainTab:AddToggle({
 	end    
 })
 
+local DarkTab = Window:MakeTab({
+	Name = "Tab 1",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
 DarkTab:AddToggle({
 	Name = "This is a toggle!",
-	Default = false,
+	Default = true,
 	Callback = function(Value)
 		print(Value)
 	end    
