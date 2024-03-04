@@ -643,8 +643,6 @@ MainTab:AddToggle({
 	end    
 })
 
---Darttab
-
 DarkTab:AddToggle({
 	Name = "This is a toggle!",
 	Default = false,
