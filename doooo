@@ -7,7 +7,7 @@ local MainTab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-Tab:AddButton({
+MainTab:AddButton({
 	Name = "Button!",
 	Callback = function()
       		while true do
