@@ -8,6 +8,22 @@ local MainTab = Window:MakeTab({
 	PremiumOnly = false
 })
 
+MainTab:AddButton({
+	Name = "test",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/Darks-scripts/testnew/main/testnew"))()
+  	end    
+})
+
+MainTab:AddToggle({
+	Name = "Auto tp",
+	Default = true,
+	Callback = function(Value)
+		task.wait(5)
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(206.342972, 16.2373466, -203.258301, 0.244790331, -1.03372585e-07, -0.969576061, 8.08776779e-09, 1, -1.0457434e-07, 0.969576061, 1.77570811e-08, 0.244790331)
+	end    
+})
+
 MainTab:AddToggle({
 	Name = "Auto tp",
 	Default = true,
@@ -250,5 +266,3 @@ MainTab:AddToggle({
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(669.154541, 16.2359428, 1083.06812, -0.458277345, -9.89286377e-08, 0.888809264, -2.93006899e-08, 1, 9.6197013e-08, -0.888809264, 1.80421882e-08, -0.458277345)
 	end    
 })
-
-OrionLib:Init()
