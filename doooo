@@ -23,7 +23,7 @@ local scripts = {
 -- Execute scripts sequentially with delays
 for i, scriptUrl in ipairs(scripts) do
     spawn(function()
-        loadAndExecuteScript(scriptUrl, 2) -- Load and execute each script with a delay of 2 seconds
+        loadAndExecuteScript(scriptUrl, 5) -- Load and execute each script with a delay of 2 seconds
     end)
 end
 
