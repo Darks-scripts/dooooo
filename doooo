@@ -8,15 +8,6 @@ local MianTab = Window:MakeTab({
 })
 
 MianTab:AddToggle({
-	Name = "anti afk 1.0",
-	Default = true,
-	Callback = function(Value)
-		task.wait(5)
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/Darks-scripts/Anti-afk-1.0/main/Anti%20afk%201.0"))()
-	end    
-})
-
-MianTab:AddToggle({
 	Name = "anti afk",
 	Default = true,
 	Callback = function(Value)
@@ -52,5 +43,13 @@ MianTab:AddToggle({
 	end    
 })
 
-OrionLib:Init()
+MianTab:AddToggle({
+	Name = "anti afk 1.0",
+	Default = true,
+	Callback = function(Value)
+		task.wait(10)
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Darks-scripts/Anti-afk-1.0/main/Anti%20afk%201.0"))()
+	end    
+})
 
+OrionLib:Init()
