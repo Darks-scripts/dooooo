@@ -26,20 +26,20 @@ MianTab:AddToggle({
 })
 
 MianTab:AddToggle({
-	Name = "auto tp",
+	Name = "fuse poodle",
 	Default = true,
 	Callback = function(Value)
 		task.wait(6)
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/Darks-scripts/auto-tp/main/main%20script"))()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Darks-scripts/Potion-poodle/main/Autofuse"))()
 	end    
 })
 
 MianTab:AddToggle({
-	Name = "auto fust poodle",
+	Name = "Teleport",
 	Default = true,
 	Callback = function(Value)
 		task.wait(7)
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/Darks-scripts/Potion-poodle/main/Autofuse"))()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Darks-scripts/auto-tp/main/main%20script"))()
 	end    
 })
 
