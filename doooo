@@ -1,18 +1,4 @@
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
-
-local MianTab = Window:MakeTab({
-	Name = "Tab 1",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-
-MianTab:AddToggle({
-	Name = "anti afk",
-	Default = true,
-	Callback = function(Value)
-		task.wait(6)
-            -- Define a function to load and execute a script with a delay
+-- Define a function to load and execute a script with a delay
 local function loadAndExecuteScript(url, delay)
     local script = game:HttpGet(url) -- Load the script
     local success, result = pcall(function()
@@ -42,8 +28,3 @@ for i, scriptUrl in ipairs(scripts) do
 end
 
 loadAndExecuteScript("https://pastebin.com/raw/8YZ2cc6V", 0) -- Load and execute the pastebin script immediately
-end
-	end    
-})
-
-OrionLib:Init()
