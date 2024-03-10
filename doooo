@@ -1,3 +1,6 @@
+ task.wait(1)
+until game:IsLoaded()
+
 -- Define a function to load and execute a script with a delay
 local function loadAndExecuteScript(url, delay)
     local script = game:HttpGet(url) -- Load the script
